@@ -44,6 +44,7 @@
     "lint": "concurrently \"eslint \"src/**/*.ts*\" \"src/**/*.tsx*\"\" \"prettier --check \"src/**/*.ts*\" \"src/**/*.tsx*\"\"",
     "lint-fix": "concurrently \"eslint \"src/**/*.ts*\" \"src/**/*.tsx*\" --fix\" \"prettier --write \"src/**/*.ts*\" \"src/**/*.tsx*\"\"",
     "rebuild": "electron-builder install-app-deps",
+    "rubens" : "npm run build && electron-builder -m && electron .",
     "copyright": "copyright-header --templateId minimal --forceModificationYear 2024 --fix --copyrightHolder Damon Smith --include src"
   },
   "devDependencies": {
