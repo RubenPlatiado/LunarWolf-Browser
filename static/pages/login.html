@@ -8,17 +8,64 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Estilos -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="css/particulas.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../src/renderer/constants/particulas.css">
+    <link rel="stylesheet" href="../src/renderer/constants/login.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
- -->
+
     <title>Rino Browser V1.5 Jupiter</title>
    
 </head>
 
 <body>
-<h1 style="color: red;">UGFHGFHJFHFHFGFGHFHFGHFGHHGFHGFGHGHGFFGHGFHHFGHGHGHGF</h1>
+
+    <div class="semicircle"></div>
+    <!-- Partículas de fondo -->
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- Formulario de inicio de sesión -->
+    <div class="form-header" style="margin-right: 20px;">
+         <img src="../src/renderer/img/rino-blanco.png" alt="Rino" style="width: 80px; height: 80px; margin-bottom: 10px;">
+        <div class="titles">
+          <h1 class="login-titulo">Rino</h1>
+          <h1 class="login-titulo2">Browser</h1>
+        </div>
+      </div>
+
+        <!-- Contenedor del formulario -->
+        <div class="form-container">
+            <!-- Formulario de inicio de sesión -->
+            <form id="loginForm" onsubmit="return false;"> <!-- Modificado para prevenir la recarga de la página -->
+                <!-- Campos de inicio de sesión -->
+                <label for="username">Correo </label>
+                <input type="email" id="username" name="username" required>
+                <label for="password">Contraseña </label>
+                <!-- Campo de contraseña -->
+
+                
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <!-- Icono de ojo para mostrar/ocultar la contraseña -->
+                    <i id="password-icon" class="fas fa-eye-slash"></i>
+                </div>
+                <!-- Botón de inicio de sesión -->
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    
+
+    <!-- Scripts -->
+    <script src="../scripts/login.js"></script> <!-- Script para el formulario de inicio de sesión -->
+    <script src="../scripts/particulas.js"></script> <!-- Script para las partículas de fondo -->
+    
 </body>
 
 </html>

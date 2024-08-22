@@ -205,49 +205,23 @@ export class View {
 
         this.webContents.setWindowOpenHandler(
             ({ url, frameName, disposition }) => {
-                if (
-                    disposition === "new-window" ||
-                    disposition === "foreground-tab" ||
-                    disposition === "background-tab"
-                ) {
-                    // Aquí podrías personalizar la lógica según tus necesidades
-                    // Por ejemplo, podrías crear una nueva ventana o usar una existente
-
-                    const popupWindow = new BrowserWindow({
-                        webPreferences: {
-                            nodeIntegration: true,
-                            contextIsolation: false,
-                            sandbox: true // Asegúrate de que la configuración sea segura
-                        },
-                        parent: this.window.win, // Opcional: para establecer la ventana actual como la ventana padre
-                        modal: false // Cambiar a true si deseas que el popup sea modal
-                    })
-
-                    popupWindow.loadURL(url) // Cargar la URL en la nueva ventana
-
-                    return { action: "allow" } // Permitir la apertura de la nueva ventana
-                }
-
-                // Si no es ninguno de los casos anteriores, denegar la solicitud por defecto
-                return { action: "deny" }
-            }
-        )
-
-        /*  this.webContents.setWindowOpenHandler(
-            ({ url, frameName, disposition }) => {
                 if (disposition === "new-window") {
+                    //Permite abrir popups: return { action: "allow" }
+                    console.log("new-window!!!")
                     this.window.viewManager.create({ url, active: true }, true)
-                    return { action: "deny" }
+                    return { action: "allow" }
                 } else if (disposition === "foreground-tab") {
+                    console.log("foreground-tab!!!")
                     this.window.viewManager.create({ url, active: true }, true)
                     return { action: "deny" }
                 } else if (disposition === "background-tab") {
+                    console.log("background-tab!!!")
                     this.window.viewManager.create({ url, active: false }, true)
                     return { action: "deny" }
                 }
                 return { action: "allow" }
             }
-        ) */
+        )
 
         this.webContents.addListener(
             "did-fail-load",
