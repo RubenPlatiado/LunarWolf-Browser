@@ -170,12 +170,20 @@ export class AppWindow {
         ;(async () => {
             if (process.env.NODE_ENV === "development") {
                 this.webContents.openDevTools({ mode: "detach" })
+                await this.win.loadURL("http://localhost:4444/login.html")
+            } else {
+                await this.win.loadURL(
+                    join("file://", app.getAppPath(), "build/login.html")
+                )
+            }
+           /*  if (process.env.NODE_ENV === "development") {
+                this.webContents.openDevTools({ mode: "detach" })
                 await this.win.loadURL("http://localhost:4444/app.html")
             } else {
                 await this.win.loadURL(
                     join("file://", app.getAppPath(), "build/app.html")
                 )
-            }
+            } */
         })()
 
         this.win.on("enter-full-screen", async () => {

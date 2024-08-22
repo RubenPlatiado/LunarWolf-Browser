@@ -130,10 +130,19 @@ function getConfig(...cfg) {
   return merge(config, ...cfg);
 }
 
-const getHtml = (name) => {
+/* const getHtml = (name) => {
   return new HtmlWebpackPlugin({
     title: 'LunarWolf',
     template: 'static/pages/app.html',
+    filename: `${name}.html`,
+    chunks: [name],
+  });
+}; */
+
+const getHtml = (name) => {
+  return new HtmlWebpackPlugin({
+    title: 'LunarWolf',
+    template: 'static/pages/login.html',
     filename: `${name}.html`,
     chunks: [name],
   });
